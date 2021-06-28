@@ -25,12 +25,13 @@ public final class Main {
         byte loanYears = scanner.nextByte();
         int numberOfPayments = loanYears * MONTHS_IN_YEAR;
 
-        // Return Mortgage Payment
-        double monthApr = monthlyApr / 12;
+        // Calculate Mortgage Payment
+        double monthApr = monthlyApr / MONTHS_IN_YEAR;
         double mortgagePmt = principal
                 * (monthApr * Math.pow(1 + monthApr, numberOfPayments) / (Math.pow(1 + monthApr, numberOfPayments) - 1));
         String pmtFormat = NumberFormat.getCurrencyInstance().format(mortgagePmt);
         
+        // Print Results
         System.out.println("Mortgage: " + pmtFormat);
     }
 }
