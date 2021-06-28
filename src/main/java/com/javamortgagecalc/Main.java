@@ -26,9 +26,9 @@ public final class Main {
         int numberOfPayments = loanYears * MONTHS_IN_YEAR;
 
         // Calculate Mortgage Payment
-        double monthApr = monthlyApr / MONTHS_IN_YEAR;
+        // double monthApr = monthlyApr / MONTHS_IN_YEAR;
         double mortgagePmt = principal
-                * (monthApr * Math.pow(1 + monthApr, numberOfPayments) / (Math.pow(1 + monthApr, numberOfPayments) - 1));
+                * (monthlyApr * Math.pow((1 + monthlyApr), numberOfPayments) / (Math.pow((1 + monthlyApr), numberOfPayments) - 1));
         String pmtFormat = NumberFormat.getCurrencyInstance().format(mortgagePmt);
         
         // Print Results
