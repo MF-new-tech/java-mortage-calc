@@ -8,6 +8,7 @@ public final class Main {
     public static void main(String[] args) {
         final byte PERCENT = 100;
         final byte MONTHS_IN_YEAR = 12;
+
         // Get user input in command line
         Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +19,7 @@ public final class Main {
         // Get user interest rate
         System.out.print("Annual Interest Rate: ");
         float apr = scanner.nextFloat();
-        float monthlyApr = apr / PERCENT / MONTHS_IN_YEAR;
+        float monthlyRate = apr / PERCENT / MONTHS_IN_YEAR;
 
         // Get user loan period
         System.out.print("Period (Years): ");
@@ -26,9 +27,8 @@ public final class Main {
         int numberOfPayments = loanYears * MONTHS_IN_YEAR;
 
         // Calculate Mortgage Payment
-        // double monthApr = monthlyApr / MONTHS_IN_YEAR;
         double mortgagePmt = principal
-                * (monthlyApr * Math.pow((1 + monthlyApr), numberOfPayments) / (Math.pow((1 + monthlyApr), numberOfPayments) - 1));
+                * (monthlyRate * Math.pow((1 + monthlyRate), numberOfPayments) / (Math.pow((1 + monthlyRate), numberOfPayments) - 1));
         String pmtFormat = NumberFormat.getCurrencyInstance().format(mortgagePmt);
         
         // Print Results
